@@ -9,8 +9,36 @@ body {
     background-color: #f4f4f4;
     color: #333;
     text-align: center;
+    overflow-x: hidden; /* Remove a barra branca no mobile */
 }
 
+/* Preloader */
+.preloader {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #6a0dad;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.loader {
+    border: 5px solid #fff;
+    border-top: 5px solid #b444ff;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Barra de navegação */
 .navbar {
     background-color: #6a0dad;
     padding: 1rem;
@@ -55,6 +83,7 @@ nav ul li a:hover {
     color: #ffcc00;
 }
 
+/* Hero Section */
 .hero {
     padding: 60px 20px;
     background: linear-gradient(to bottom, #6a0dad, #121212);
@@ -84,6 +113,7 @@ nav ul li a:hover {
     background-color: #6a0dad;
 }
 
+/* Projetos */
 .projetos {
     padding: 60px 20px;
     background-color: #000000;
@@ -103,6 +133,7 @@ nav ul li a:hover {
     padding: 0 20px;
 }
 
+/* Cards */
 .card {
     background: #ffffff;
     padding: 20px;
@@ -110,11 +141,6 @@ nav ul li a:hover {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     width: 280px;
-    height: auto;
-    margin: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     text-align: center;
 }
 
@@ -130,16 +156,20 @@ nav ul li a:hover {
     border-radius: 8px;
 }
 
-.card-content h3 {
-    font-size: 22px;
-    margin-top: 20px;
-    color: #333;
+/* Botão de compra */
+.buy-btn {
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #6a0dad;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
 }
 
-.card-content p {
-    font-size: 14px;
-    color: #777;
-    margin-top: 10px;
+.buy-btn:hover {
+    background-color: #b444ff;
 }
 
 /* Responsividade */
