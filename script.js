@@ -1,21 +1,24 @@
-// Seleciona todas as imagens dentro dos cards
-const cardImages = document.querySelectorAll('.card-image img');
+// Remove o preloader após carregar a página
+window.addEventListener("load", function() {
+    document.querySelector(".preloader").style.display = "none";
+});
 
-cardImages.forEach((img) => {
-    img.addEventListener('mousemove', (e) => {
-        const { offsetWidth: width, offsetHeight: height } = img;
-        const { offsetX: x, offsetY: y } = e;
+// Número do WhatsApp
+const whatsappNumber = "5564996239084";
 
-        // Calcula o valor de deslocamento com base no movimento do mouse
-        const moveX = (x / width) * 20 - 10; // Limita a rotação a 20px
-        const moveY = (y / height) * 20 - 10;
+// Adiciona evento de clique nos botões de compra
+document.querySelectorAll(".buy-btn").forEach(button => {
+    button.addEventListener("click", function() {
+        // Obtém o nome do projeto a partir do card
+        const projectName = this.parentElement.querySelector("h3").innerText;
 
-        // Aplica o efeito de rotação nas imagens
-        img.style.transform = `scale(1.1) rotateX(${-moveY}deg) rotateY(${moveX}deg)`;
-    });
+        // Mensagem personalizada
+        const message = `Olá, gostaria de comprar o projeto: ${encodeURIComponent(projectName)}. Poderia me passar mais detalhes?`;
 
-    // Remove o efeito quando o mouse sai da imagem
-    img.addEventListener('mouseleave', () => {
-        img.style.transform = 'scale(1) rotateX(0) rotateY(0)';
+        // Monta o link do WhatsApp
+        const whatsappLink = `https://wa.me/${whatsappNumber}?text=${message}`;
+
+        // Redireciona para o WhatsApp
+        window.location.href = whatsappLink;
     });
 });
